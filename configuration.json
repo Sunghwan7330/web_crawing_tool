@@ -1,4 +1,8 @@
 {
+  "webdriver_option" : {
+    "webdriver_type" : "chrome",
+    "webdriver_path" : "./chromedriver.exe"
+  },
   "instagram" : {
     "user_id" : "",
     "user_passwd" : "",

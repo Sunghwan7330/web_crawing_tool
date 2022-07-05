@@ -3,10 +3,13 @@ from selenium.webdriver.common.by import By
 import time
 import json
 
-def get_instagram_follower(insta_info):
+from webdriver_builder.webdriver_builder import WebdriverBuilder
+
+
+def get_instagram_follower(insta_info, driver):
     insta_url = 'https://www.instagram.com/'
     login_url = insta_url + "accounts/login"
-    driver = webdriver.Chrome('./chromedriver.exe')
+
     driver.get(login_url)
     time.sleep(5)
 
@@ -45,7 +48,11 @@ def main():
     print('hello world')
     with open('configuration.json') as f:
         conf = json.load(f)
-    get_instagram_follower(conf['instagram'])
+    driver = WebdriverBuilder()\
+            .setWebdriverJsonOption(conf['webdriver_option'])\
+            .build()
+
+    get_instagram_follower(conf['instagram'], driver)
     return
 
 if __name__ == "__main__":
