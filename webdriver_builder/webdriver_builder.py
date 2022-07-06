@@ -20,11 +20,18 @@ class WebdriverBuilder:
         return
 
     def setWebdriverOption(self, option):
-        # TODO 옵션 없을때 예외처리 필요
-        self.webdriver_type = option["webdriver_type"]
-        self.webdriver_path = option["webdriver_path"]
+        if "webdriver_type" in option:
+            self.setWebdriverType(option["webdriver_type"])
+        if "webdriver_path" in option:
+            self.setWebdriverPath(option["webdriver_path"])
 
         return self
+
+    def setWebdriverType(self, type):
+        self.webdriver_type = type
+
+    def setWebdriverPath(self, path):
+        self.webdriver_path = path
 
     def build(self):
         if self.webdriver_type is None:
