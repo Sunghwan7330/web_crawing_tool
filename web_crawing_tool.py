@@ -46,10 +46,11 @@ def get_instagram_follower(insta_info, driver):
 
 def main():
     print('hello world')
+
     with open('configuration.json') as f:
         conf = json.load(f)
     driver = WebdriverBuilder()\
-            .setWebdriverJsonOption(conf['webdriver_option'])\
+            .setWebdriverOption(conf['webdriver_option'])\
             .build()
 
     get_instagram_follower(conf['instagram'], driver)
