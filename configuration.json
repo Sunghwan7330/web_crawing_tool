@@ -6,6 +6,6 @@
   "instagram" : {
     "user_id" : "",
     "user_passwd" : "",
-    "crawing_target_id" : ["hwanny7330"]
+    "crawing_target_id_list" : ["hwanny7330"]
   }
 }
