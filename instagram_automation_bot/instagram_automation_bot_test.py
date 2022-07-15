@@ -17,6 +17,19 @@ class InstagramAutomationBotTest(unittest.TestCase):
         self.assertEqual(insta_bot.getUserPassword(), "bbbbbb")
         self.assertEqual(insta_bot.getCrawingTargetList(), ["aaaa1", "aaaa2", "aaaa3"])
 
+    def test_run_webdriver_is_none(self):
+        bot_option = {
+            "user_id": "aaaaaa",
+            "user_passwd": "bbbbbb",
+            "crawing_target_id_list": ["aaaa1", "aaaa2", "aaaa3"]
+        }
+        insta_bot = InstagramAutomationBot(None)
+        insta_bot.setOption(bot_option)
+        res = insta_bot.run_automation()
+        self.assertEqual(res, False)
+
+
+
 
 if __name__ == "__main__":
     unittest.main()
