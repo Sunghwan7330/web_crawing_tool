@@ -28,7 +28,16 @@ class InstagramAutomationBotTest(unittest.TestCase):
         res = insta_bot.run_automation()
         self.assertEqual(res, False)
 
+    def test_get_user_info(self):
+        f = open("./instagram_sample_page.html", 'r', encoding='utf-8')
+        html = f.read()
+        f.close()
 
+        insta_bot = InstagramAutomationBot(None)
+        res = insta_bot.getUserInfoFromHtml(html)
+        self.assertEqual(res[0], 116)
+        self.assertEqual(res[1], 151)
+        self.assertEqual(res[2], 198)
 
 
 if __name__ == "__main__":
