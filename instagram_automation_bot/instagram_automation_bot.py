@@ -48,6 +48,15 @@ class InstagramAutomationBot:
         driver.implicitly_wait(5)
         time.sleep(5)
 
+        for target_name in self.crawing_target_id_list:
+            target_url = self.insta_url + target_name
+            driver.get(target_url)
+            driver.implicitly_wait(5)
+            time.sleep(5)
+
+            res = self.getUserInfoFromHtml(driver.page_source)
+            print(res)
+
         return True
 
     def setWebdriver(self, webdriver):
